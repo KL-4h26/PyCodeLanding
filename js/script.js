@@ -4,7 +4,7 @@ const statuses = ["About", "Stack&Projects"]
 let contentMode = {
     "About": {
         "title": "Приветствую, я - PyCode",
-        "content": "Тут я рассказываю о себе и тд и тп"
+        "content": "Хочу рассказать немного о себе, я Python Backend программист c опытом 2 года, для Бекенда использую Flask, но собираюсь перейти на более проффесиональный фреймворк Django"
     },
     "Stack&Projects": {
         "title": "Немного о моем стеке и проектах",
