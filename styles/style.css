@@ -1,4 +1,4 @@
-/* Базовые стили (для всех устройств) */
+/* ===== Базовые стили ===== */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #121212;
@@ -9,7 +9,7 @@ body {
     min-height: 100vh;
 }
 
-/* Шапка (базовый стиль для ПК) */
+/* ===== Шапка (общие стили для ПК) ===== */
 header {
     background-color: #1e1e1e;
     padding: 1rem 2rem;
@@ -17,9 +17,12 @@ header {
     display: flex;
     justify-content: flex-start;
     gap: 1rem;
+    flex-wrap: wrap; /* Перенос кнопок на маленьких экранах */
 }
 
-header button {
+/* Общие стили для всех кнопок И кнопки Telegram (ссылки) */
+header button,
+header a.tg-button {
     background-color: #2d2d2d;
     color: #e0e0e0;
     border: none;
@@ -29,14 +32,28 @@ header button {
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: 500;
+    text-decoration: none; /* Убираем подчёркивание у ссылки */
+    display: inline-block; /* Чтобы padding работал как у button */
+    text-align: center;
+    font-family: inherit; /* Наследуем шрифт от body */
+    line-height: inherit; /* Единый межстрочный интервал */
+    height: auto; /* Фиксированная высота не нужна */
 }
 
-header button:hover {
+/* Hover-эффекты */
+header button:hover,
+header a.tg-button:hover {
     background-color: #3d3d3d;
     transform: translateY(-2px);
 }
 
-/* Заголовок (ПК) */
+/* Активное состояние */
+header button:active,
+header a.tg-button:active {
+    transform: translateY(0);
+}
+
+/* ===== Заголовок ===== */
 #tlt {
     color: #4fc3f7;
     font-size: 3rem;
@@ -45,7 +62,7 @@ header button:hover {
     letter-spacing: 1px;
 }
 
-/* Текстовый блок (ПК) */
+/* ===== Текстовый блок ===== */
 .text-block {
     background-color: #1e1e1e;
     border-radius: 8px;
@@ -53,6 +70,7 @@ header button:hover {
     margin: 0 0 2rem 2rem;
     max-width: 800px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Чтобы padding не ломал ширину */
 }
 
 #content {
@@ -62,7 +80,7 @@ header button:hover {
     margin: 0;
 }
 
-/* Анимация (для всех) */
+/* ===== Анимация появления ===== */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -72,7 +90,7 @@ header button:hover {
     animation: fadeIn 0.8s ease-out forwards;
 }
 
-/* 🔥 Адаптация под планшеты (768px и меньше) */
+/* ===== Адаптация под планшеты (768px) ===== */
 @media (max-width: 768px) {
     header {
         padding: 1rem;
@@ -88,39 +106,27 @@ header button:hover {
     .text-block {
         margin: 0 auto 1.5rem;
         width: calc(100% - 2rem);
-        max-width: none;
     }
 }
 
-/* 🔥 Адаптация под телефоны (480px и меньше) */
+/* ===== Адаптация под телефоны (480px) ===== */
 @media (max-width: 480px) {
-    header {
-        flex-wrap: wrap;
-        gap: 0.6rem;
-    }
-
-    header button {
+    header button,
+    header a.tg-button {
         padding: 0.5rem 0.8rem;
         font-size: 0.9rem;
-        flex-grow: 1;
-        max-width: 120px;
+        flex-grow: 1; /* Растягиваем на всю доступную ширину */
+        min-width: 120px; /* Минимальная ширина */
+        max-width: 150px; /* Максимальная ширина */
     }
 
     #tlt {
         font-size: 1.8rem;
-        margin: 1rem 0.5rem;
     }
 
     .text-block {
-        margin: 0 auto 1.5rem; /* auto по бокам для центрирования */
-        width: 90%; /* Процентная ширина вместо calc */
-        max-width: 100%; /* На всякий случай */
-        box-sizing: border-box; /* Чтобы padding не увеличивал ширину */
         padding: 1.2rem;
-    }
-
-    #content {
-        font-size: 1rem;
-        line-height: 1.7;
+        margin: 0 1rem 1.5rem;
+        width: calc(100% - 2rem);
     }
 }
