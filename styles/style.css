@@ -26,24 +26,23 @@ header {
     flex-wrap: wrap; /* Перенос кнопок на маленьких экранах */
 }
 
-/* Общие стили для всех кнопок И кнопки Telegram (ссылки) */
 header button,
 header a.tg-button {
     background-color: #2d2d2d;
     color: #e0e0e0;
     border: none;
-    padding: 0.6rem 1.2rem;
+    padding: 0.4rem 0.8rem;  /* Уменьшил padding (было 0.6rem 1.2rem) */
     border-radius: 4px;
-    font-size: 1rem;
+    font-size: 0.9rem;       /* Чуть меньший шрифт (было 1rem) */
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: 500;
-    text-decoration: none; /* Убираем подчёркивание у ссылки */
-    display: inline-block; /* Чтобы padding работал как у button */
+    text-decoration: none;
+    display: inline-block;
     text-align: center;
-    font-family: inherit; /* Наследуем шрифт от body */
-    line-height: inherit; /* Единый межстрочный интервал */
-    height: auto; /* Фиксированная высота не нужна */
+    font-family: inherit;
+    line-height: 1.2;        /* Более компактный межстрочный интервал */
+    min-width: fit-content;  /* Чтобы кнопка не сжималась слишком сильно */
 }
 
 /* Hover-эффекты */
@@ -74,7 +73,8 @@ header a.tg-button:active {
     border-radius: 8px;
     padding: 1.5rem;
     margin: 0 0 2rem 2rem;
-    max-width: 800px;
+    max-width: 900px;  /* Увеличил ширину */
+    width: 100%;       /* Для адаптивности */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     box-sizing: border-box; /* Чтобы padding не ломал ширину */
 }
